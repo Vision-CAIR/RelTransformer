@@ -75,5 +75,22 @@ DO NOT CHANGE anything in the provided config files(configs/xx/xxxx.yaml) even i
 
 
 ## Acknowledgements
-This repository uses code based on the [Large-scale Visual Relationship Understanding](https://github.com/jz462/Large-Scale-VRD.pytorch) source code by Zhang Ji, 
+This repository uses code based on the [LTVRD](https://github.com/Vision-CAIR/LTVRR) source code by sherif, 
 as well as code from the [Detectron.pytorch](https://github.com/roytseng-tw/Detectron.pytorch) repository by Roy Tseng.
+
+
+## Citing
+
+If you use this code in your research, please use the following BibTeX entry.
+
+```
+@article{chen2021reltransformer,
+  title={RelTransformer: Balancing the Visual Relationship Detection from Local Context, Scene and Memory},
+  author={Chen, Jun and Agarwal, Aniket and Abdelkarim, Sherif and Zhu, Deyao and Elhoseiny, Mohamed},
+  journal={arXiv preprint arXiv:2104.11934},
+  year={2021}
+}
+
+```
+
+
