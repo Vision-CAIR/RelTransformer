@@ -74,6 +74,63 @@ DO NOT CHANGE anything in the provided config files(configs/xx/xxxx.yaml) even i
 `--multi-gpu-test` for single-gpu inference.
 
 
+## Training Relationship Detection Models
+It requires 8 GPUS for trianing.
+
+
+### GVQA
+Train our relationship network using a VGG16 backbone, run
+```
+python -u tools/train_net_reltransformer.py --dataset gvqa --cfg configs/gvqa/e2e_relcnn_VGG16_8_epochs_gvqa_reltransformer.yaml --nw 8 --use_tfboard --seed 1 
+```
+Train our relationship network using a VGG16 backbone with WCE loss, run
+```
+python -u tools/train_net_reltransformer_WCE.py --dataset gvqa --cfg configs/gvqa/e2e_relcnn_VGG16_8_epochs_gvqa_reltransformer_WCE.yaml --nw 8 --use_tfboard --seed 1
+```
+
+To test the trained networks, run
+```
+python tools/test_net_reltransformer.py --dataset gvqa --cfg configs/gvqa/e2e_relcnn_VGG16_8_epochs_gvqa_reltransformer.yaml --load_ckpt  model-path  --use_gt_boxes --use_gt_labels --do_val
+```
+To test the trained networks, run
+```
+python tools/test_net_reltransformer_WCE.py --dataset gvqa --cfg configs/gvqa/e2e_relcnn_VGG16_8_epochs_gvqa_reltransformer_WCE.yaml --load_ckpt  model-path  --use_gt_boxes --use_gt_labels --do_val
+
+```
+
+
+### VG8K
+Train our relationship network using a VGG16 backbone, run
+```
+python -u tools/train_net_reltransformer.py --dataset vg8k --cfg configs/vg8k/e2e_relcnn_VGG16_8_epochs_vg8k_reltransformer.yaml  --nw 8 --use_tfboard --seed 3
+```
+Train our relationship network using a VGG16 backbone with WCE loss, run
+
+```
+python -u tools/train_net_reltransformer_wce.py --dataset vg8k --cfg configs/vg8k/e2e_relcnn_VGG16_8_epochs_vg8k_reltransformer_wce.yaml --nw 8 --use_tfboard --seed3
+```
+
+To test the trained networks, run
+```
+python tools/test_net_reltransformer.py --dataset vg8k --cfg configs/vg8k/e2e_relcnn_VGG16_8_epochs_vg8k_reltransformer.yaml --load_ckpt  model-path  --use_gt_boxes --use_gt_labels --do_val
+```
+To test the trained model with WCE loss function, run
+```
+python tools/test_net_reltransformer_wce.py --dataset vg8k --cfg configs/vg8k/e2e_relcnn_VGG16_8_epochs_vg8k_reltransformer_wce.yaml --load_ckpt  model-path  --use_gt_boxes --use_gt_labels --do_val
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Acknowledgements
 This repository uses code based on the [LTVRD](https://github.com/Vision-CAIR/LTVRR) source code by sherif, 
 as well as code from the [Detectron.pytorch](https://github.com/roytseng-tw/Detectron.pytorch) repository by Roy Tseng.
