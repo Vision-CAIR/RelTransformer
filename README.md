@@ -10,7 +10,7 @@ This is a Pytorch implementation for [RelTransformer](https://arxiv.org/abs/2104
 Requirements 
 
 ```
-conda env create -f environment.yml
+conda env create -f reltransformer_env.yml
 ```
 
 ## Compilation
@@ -63,8 +63,8 @@ Download Visual Genome images from the [official page](https://visualgenome.org/
 ## Pre-trained Object Detection Models
 Download pre-trained object detection models [here](https://drive.google.com/open?id=16JVQkkKGfiGt7AUt789pUPX3o84Cl2hL). Unzip it under the root directory and you should see a `detection_models` folder there.
 
-## Our pre-trained Relationship Detection models
-Download our trained models [here](). Unzip it under the root folder and you should see a `trained_models` folder there.
+<!-- ## Our pre-trained Relationship Detection models -->
+<!-- Download our trained models [here](). Unzip it under the root folder and you should see a `trained_models` folder there. -->
 
 ## Evaluating Pre-trained Relationship Detection models
 
