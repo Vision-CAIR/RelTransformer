@@ -8,7 +8,7 @@
 This is a Pytorch implementation for [RelTransformer](https://arxiv.org/abs/2104.11934)
 
 
-The implementation for General Visual Relationship on VG200 can be found [here](https://github.com/junchen14/RelTransformer_GeneralVRD)
+The implementation for Evaluating on VG200 can be found [here](https://github.com/junchen14/RelTransformer_GeneralVRD)
 
 Requirements 
 
