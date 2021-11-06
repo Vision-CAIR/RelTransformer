@@ -38,17 +38,9 @@ class Attention(nn.Module):
 
 
         m = 100
-        # self.m_k = nn.Parameter(torch.FloatTensor(1,m,n_state))
-
-        # self.memory_features = nn.Parameter(torch.FloatTensor(1, m, n_state))
-        # # self.m_v = nn.Parameter(torch.FloatTensor(1, m , n_state))
+ 
         self.m = 100
-        # self.mem_attn = Conv1D_(n_state * 2, n_state)
 
-
-
-        # self.m_k = nn.Parameter(torch.FloatTensor(1, m, n_state))
-        # self.m_v = nn.Parameter(torch.FloatTensor(1, m, n_state))
         self.memory_features = nn.Parameter(torch.FloatTensor(1, m, n_state))
         self.mem_attn = Conv1D_(n_state * 2, n_state)
         self.alpha = nn.Linear(  n_state + n_state , n_state)
@@ -140,7 +132,7 @@ class Attention(nn.Module):
 
 
         # a = alpha * a - (1-alpha)* a1
-        a = alpha * a -  a1
+        a = alpha * a + (1-alpha)*a1
         
 
         a = self.c_proj(a)
