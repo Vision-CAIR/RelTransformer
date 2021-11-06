@@ -95,32 +95,16 @@ class Attention(nn.Module):
         memory = self.mem_attn(memory)
         memory_key , memory_value = memory.split(self.split_size,dim=2)
 
-        # a = self.c_proj(a)
-        # a  = x+ a
-
-
-        # first memory retrieval
-        # m_v = self.split_heads(m_v)
-        # _, m_update = self._attn(m_v, key, value)
-
-
-
-        # m_update = self.merge_heads(m_update)
-        # m_update = self.c_proj(m_update)
-        # m_v = self.m_k + m_update
-
 
         m_update_key = self.split_heads(memory_key, k=True)
         m_update_value = self.split_heads(memory_value)
 
 
 
-        # a_key = self.split_heads(a)
-        # second retrieval
 
 
 
-        # print(query.shape, m_update_key.shape, m_update_value.shape)
+
 
         _, a1 = self._attn(query, m_update_key, m_update_value)
         
@@ -131,7 +115,6 @@ class Attention(nn.Module):
         alpha  = torch.sigmoid(self.alpha(torch.cat([a, a1],-1)))
 
 
-        # a = alpha * a - (1-alpha)* a1
         a = alpha * a + (1-alpha)*a1
         
 
