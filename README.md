@@ -3,9 +3,9 @@
 
 ## Our Architecture
 
-<!-- ![image](overview.pdf) -->
+![image](overview.pdf)
 
-<embed> overview.pdf </embed>
+<!-- <embed> overview.pdf </embed> -->
 
 This is a Pytorch implementation for [RelTransformer](https://arxiv.org/abs/2104.11934)
 
