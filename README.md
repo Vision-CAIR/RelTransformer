@@ -3,7 +3,7 @@
 
 ## Our Architecture
 
-![image](overview.jpg)
+![image](overview.pdf)
 
 This is a Pytorch implementation for [RelTransformer](https://arxiv.org/abs/2104.11934)
 
