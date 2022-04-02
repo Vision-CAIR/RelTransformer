@@ -5,7 +5,7 @@
 
 <!-- ![image](overview.pdf) -->
 
-<embed source="overview.pdf" type="application/pdf">
+<embed src="overview.pdf" type="application/pdf">
 
 This is a Pytorch implementation for [RelTransformer](https://arxiv.org/abs/2104.11934)
 
