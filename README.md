@@ -142,6 +142,15 @@ as well as code from the [Detectron.pytorch](https://github.com/roytseng-tw/Dete
 If you use this code in your research, please use the following BibTeX entry.
 
 ```
+@InProceedings{Chen_2022_CVPR,
+    author    = {Chen, Jun and Agarwal, Aniket and Abdelkarim, Sherif and Zhu, Deyao and Elhoseiny, Mohamed},
+    title     = {RelTransformer: A Transformer-Based Long-Tail Visual Relationship Recognition},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2022},
+    pages     = {19507-19517}
+}
+
 @article{chen2021reltransformer,
   title={RelTransformer: Balancing the Visual Relationship Detection from Local Context, Scene and Memory},
   author={Chen, Jun and Agarwal, Aniket and Abdelkarim, Sherif and Zhu, Deyao and Elhoseiny, Mohamed},
