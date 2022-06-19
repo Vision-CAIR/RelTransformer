@@ -32,7 +32,6 @@ class Conv1D_(nn.Module):
 
     def forward(self, x):
         size_out = x.size()[:-1] + (self.nf,)
-        test = x.contiguous().view(-1, x.size(-1))
         x = torch.addmm(self.bias, x.contiguous().view(-1, x.size(-1)), self.weight)
 
         x = x.view(*size_out)
