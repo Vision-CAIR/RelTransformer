@@ -35,13 +35,10 @@ class Attention(nn.Module):
         self.c_attn = Conv1D_(n_state * 3, n_state)
         self.c_proj = Conv1D_(n_state, n_state)
         self.split_size = n_state
-
-
-        m = 100
  
         self.m = 100
 
-        self.memory_features = nn.Parameter(torch.FloatTensor(1, m, n_state))
+        self.memory_features = nn.Parameter(torch.FloatTensor(1, self.m, n_state))
         self.mem_attn = Conv1D_(n_state * 2, n_state)
         self.alpha = nn.Linear(  n_state + n_state , n_state)
 
@@ -70,8 +67,6 @@ class Attention(nn.Module):
             return x.permute(0, 2, 1, 3)  # (batch, head, seq_length, head_features)
 
     def forward(self, x):
-        # print(x.shape, "x shape")
-
 
         x1 = self.c_attn(x)
         query, key, value = x1.split(self.split_size, dim=2)
@@ -82,9 +77,6 @@ class Attention(nn.Module):
         query = self.split_heads(query)
         key = self.split_heads(key, k=True)
         value = self.split_heads(value)
-
-
-
 
 
         _,a = self._attn(query, key, value)
@@ -100,17 +92,8 @@ class Attention(nn.Module):
         m_update_value = self.split_heads(memory_value)
 
 
-
-
-
-
-
-
         _, a1 = self._attn(query, m_update_key, m_update_value)
-        
-
         a1 = self.merge_heads(a1)
-
 
         alpha  = torch.sigmoid(self.alpha(torch.cat([a, a1],-1)))
 
@@ -261,7 +244,7 @@ class Block(nn.Module):
         enc_att1 = alpha1 * a + (1-alpha1) * enc_att1
         enc_att2 = alpha2 * a  + (1-alpha2) * enc_att2
 
-        # threshold = 0.2
+        
 
         a = (enc_att1  + enc_att2 )/ np.sqrt(2)
 
